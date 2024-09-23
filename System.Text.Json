@@ -1,0 +1,26 @@
+[
+    {
+        "Id": 1,
+        "Title": "Complete Assignment",
+        "Description": "Finish the C# project by the end of the week",
+        "DueDate": "2024-09-30T00:00:00",
+        "TaskPriority": "High",
+        "IsCompleted": false
+    },
+    {
+        "Id": 2,
+        "Title": "Grocery Shopping",
+        "Description": "Buy groceries for the week",
+        "DueDate": "2024-09-25T00:00:00",
+        "TaskPriority": "Medium",
+        "IsCompleted": false
+    },
+    {
+        "Id": 3,
+        "Title": "Workout",
+        "Description": "Attend the gym session",
+        "DueDate": "2024-09-28T00:00:00",
+        "TaskPriority": "Low",
+        "IsCompleted": true
+    }
+]
