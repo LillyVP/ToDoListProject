@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 
 namespace ToDoListProject
 {
@@ -8,35 +7,38 @@ namespace ToDoListProject
         static void Main(string[] args)
         {
             TaskManager taskManager = new TaskManager();
-            FileManager fileManager = new FileManager("launch.json");
 
-            // Load tasks from file
-            List<Task> loadedTasks = fileManager.LoadTasks();
-            foreach (var task in loadedTasks)
-            {
-                taskManager.AddTask(task);
-            }
-
-            // Example usage
-            Console.WriteLine("Welcome to the To-Do List Task Manager!");
-            Console.WriteLine("Adding a new task...");
-
-            Task newTask = new Task(1, "Complete Assignment", "Finish the C# project by the end of the week", DateTime.Now.AddDays(3), Priority.High);
-            taskManager.AddTask(newTask);
-
-            // Mark a task as completed
-            Console.WriteLine("Marking task as completed...");
-            newTask.MarkAsComplete();
+            // Add some tasks to the task manager
+            taskManager.AddTask(new Task(1, "Complete Assignment", "Finish the C# ToDoListProject", DateTime.Now.AddDays(2), Priority.High));
+            taskManager.AddTask(new Task(2, "Go Grocery Shopping", "Buy food for the week", DateTime.Now.AddDays(1), Priority.Medium));
 
             // Display all tasks
-            Console.WriteLine("\nAll Tasks:");
+            Console.WriteLine("All Tasks:");
             foreach (var task in taskManager.GetAllTasks())
             {
                 Console.WriteLine(task);
             }
 
-            // Save tasks to file
-            fileManager.SaveTasks(taskManager.GetAllTasks());
+            // Update the first task
+            Task updatedTask = new Task(1, "Complete Assignment", "Finish all remaining tasks in ToDoListProject", DateTime.Now.AddDays(3), Priority.High);
+            taskManager.UpdateTask(updatedTask);
+
+            // Display tasks after the update
+            Console.WriteLine("\nUpdated Tasks:");
+            foreach (var task in taskManager.GetAllTasks())
+            {
+                Console.WriteLine(task);
+            }
+
+            // Delete the second task
+            taskManager.DeleteTask(2);
+
+            // Display tasks after deletion
+            Console.WriteLine("\nTasks after deletion:");
+            foreach (var task in taskManager.GetAllTasks())
+            {
+                Console.WriteLine(task);
+            }
         }
     }
 }
